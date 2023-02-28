@@ -10,10 +10,10 @@ export const ContactsPage = (props) => {
   const contacts = props.contacts;
   const addContact = props.addContact;
 
-  const [email, setEmail] = useState();
-  const [guest, setGuest] = useState();
-  const [phoneNumber, setPhoneNumber] = useState();
-  const [duplicateCheck, setDuplicateCheck] = useState();
+  const [email, setEmail] = useState('');
+  const [guest, setGuest] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [duplicateCheck, setDuplicateCheck] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,13 +34,14 @@ export const ContactsPage = (props) => {
   Using hooks, check for contact name in the 
   contacts array variable in props
   */
-  useEffect( () => {
-    for (const contact of contacts) {
+
+  useEffect(() => {
+    for (const contact of props.contacts) {
       if (guest === contact.guest) {
         setDuplicateCheck(true);
       }
     }
-  });
+  }, [guest, props.contacts]);
 
   return (
     <div>

@@ -26,6 +26,7 @@ export const ContactForm = ({
         <input 
         type='email'
         value={email}
+        pattern="(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)"
         onChange={({target}) => {setEmail(target.value)}}
         required
         />
