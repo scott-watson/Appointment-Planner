@@ -35,13 +35,13 @@ export const ContactsPage = (props) => {
   contacts array variable in props
   */
 
-  useEffect(() => {
-    for (const contact of props.contacts) {
+  useEffect( () => {
+    for (const contact of contacts) {
       if (guest === contact.guest) {
         setDuplicateCheck(true);
       }
     }
-  }, [guest, props.contacts]);
+  });
 
   return (
     <div>
